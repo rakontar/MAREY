@@ -1,0 +1,88 @@
+/* Versión más alta */
+#reseñasCarousel {
+  height: 250px;          /* Más alto */
+  max-width: 900px;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  margin: 3rem auto 0 auto; /* 3rem de margen arriba para separarlo */
+}
+
+#reseñasCarousel .carousel-inner,
+#reseñasCarousel .carousel-item,
+#reseñasCarousel .carousel-item img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  background-color: #000; /* opcional, para evitar fondo blanco si la imagen no cubre todo */
+}
+
+
+#reseñasCarousel .carousel-item img {
+  object-fit: cover;     /* Mantener el recorte pero más altura visible */
+}
+
+/* ---------------------------------- */
+
+/* Versión más compacta */
+#reseñasCarousel {
+  /* height: 120px;        Altura fija - comentada para usar versión alta */
+  height: 120px;
+  max-width: 900px;     /* Mucho más ancho para que las imágenes se vean bien */
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+#reseñasCarousel .carousel-inner,
+#reseñasCarousel .carousel-item,
+#reseñasCarousel .carousel-item img {
+  height: 120px;
+  width: 100%;
+  max-width: 900px;     /* Asegura que las imágenes llenen el contenedor */
+}
+
+#reseñasCarousel .carousel-item img {
+  object-fit: cover;
+}
+
+/* Ajustar controles para el nuevo tamaño */
+#reseñasCarousel .carousel-control-prev,
+#reseñasCarousel .carousel-control-next {
+  width: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  opacity: 1;
+  padding: 0;
+}
+
+#reseñasCarousel .carousel-control-prev {
+  left: 1%;          /* Algo más espacio a los lados */
+}
+
+#reseñasCarousel .carousel-control-next {
+  right: 1rem;
+}
+
+#reseñasCarousel .carousel-control-prev img,
+#reseñasCarousel .carousel-control-next img {
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+}
+
+/* GIFs inclinados en las esquinas */
+.position-relative > img.position-absolute:first-child {
+  width: 50px;
+  height: 50px;
+  transform: rotate(-10deg);
+}
+
+.position-relative > img.position-absolute:last-child {
+  width: 50px;
+  height: 50px;
+  transform: rotate(10deg);
+}
