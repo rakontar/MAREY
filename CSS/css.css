@@ -98,3 +98,11 @@ footer a:hover {
     .equipo-link:hover {
         color: #1e90ff; /* Azul más intenso al pasar el ratón */
     }
+    .nuestra-historia-title {
+    font-size: 0; /* oculta el texto */
+    background-image: url("../img/nuestrahistoria.gif");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 400px;   /* ajusta al tamaño de tu imagen */
+    height: 100px;  /* ajusta al tamaño de tu imagen */}
