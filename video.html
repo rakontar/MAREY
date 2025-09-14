@@ -35,43 +35,18 @@
 <div class="mt-5">
     <img src="img/pañuelocamara.png" alt="Imagen descriptiva" class="img-fluid w-100" />
   </div>
-  <!-- Zona de videos -->
 <div class="container my-5">
-  <h2 class="text-center text-white mb-4" style="font-family: 'Playfair Display', serif;">Nuestros Videos</h2>
-  <div class="row g-4">
-    
-    <!-- Video 1 -->
-    <div class="col-md-4">
-      <div class="ratio ratio-16x9">
-        <iframe src="https://www.youtube.com/embed/S8lzTlj_gA0" 
-                title="Video 1" 
-                allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <!-- Video 2 -->
-    <div class="col-md-4">
-      <div class="ratio ratio-16x9">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" 
-                title="Video 2" 
-                allowfullscreen></iframe>
-      </div>
-    </div>
-
-    <!-- Video 3 -->
-    <div class="col-md-4">
-      <div class="ratio ratio-16x9">
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" 
-                title="Video 3" 
-                allowfullscreen></iframe>
-      </div>
-    </div>
-
+  <h2 class="text-center text-white mb-4" style="font-family: 'Playfair Display', serif;">Nuestros Especialistas</h2>
+  <div id="streamers" class="row g-4 justify-content-center">
+    <!-- Aquí se insertarán los streamers desde api_twitch.js -->
   </div>
 </div>
+
+
 </body>
 
 <!-- Footer -->
+  <!-- Footer -->
   <footer class="bg-dark text-white py-4 mt-4">
     <div class="container">
 
@@ -116,8 +91,8 @@
         <div class="col-md-4 mb-4 mb-md-0">
           <h5 class="fw-bold mb-3">SOBRE NOSOTROS</h5>
           <ul class="list-unstyled">
-            <li>          <a href="nosotros.html#mision" style="text-decoration: none; color: inherit;">  Mision</a></li>
-            <li>Nuestro equipo</li>
+            <li><a href="nosotros.html#mision" style="text-decoration: none; color: inherit;">  Mision</a></li>
+            <li><a href="nosotros.html#equipo" style="text-decoration: none; color: inherit;">  Nuestro equipo</a></li>
           </ul>
         </div>
 
@@ -129,10 +104,10 @@
         </h2>
       </h5>
       <ul class="list-unstyled">
-        <li>Ventajas</li>
+       <li > <button id="btnVentajas" style="background:none; border:none; color:inherit; padding:0; font:inherit; cursor:pointer;"> Ventajas </button></li>
         <li>FAQ</li>
         <li>Sé uno de los nuestros</li>
-        <li>Videos</li>
+        <li><a href="video.html#streamers" style="text-decoration: none; color: inherit;">  Videos</a></li>
       </ul>
     </div>
 
@@ -154,10 +129,8 @@
     </div>
   </footer>
 
-
-
   <!-- Bootstrap JS bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script/script.js"></script>
-
+  <script src="script/api_twitch.js"></script>
 </html>

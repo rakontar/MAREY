@@ -9,6 +9,42 @@ document.addEventListener('DOMContentLoaded', function () {
     elementoNumero.textContent = numero;
   }
 
+  const btnVentajas = document.getElementById("btnVentajas");
+
+  if (btnVentajas) {
+    btnVentajas.addEventListener("click", () => {
+      Swal.fire({
+        title: '¿Estás seguro?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonText: 'Sí',
+        cancelButtonText: 'No',
+        confirmButtonColor: '#28a745',
+        cancelButtonColor: '#d33'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: '¡Genial!',
+            text: 'No serás un pink y estarás a salvo en STORIBORIS',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#28a745'
+          });
+        } else {
+          Swal.fire({
+            title: 'Hmm...',
+            text: 'Los pinks dan vueltas en círculos mientras que nosotros reiremos en STORIBORIS. Tambien se te ha cobrado 100€ a tu cuenta bancaria ',
+            icon: 'info',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#d33'
+          });
+        }
+      });
+    });
+  } else {
+    console.warn("No se encontró el botón con id 'btnVentajas'");
+  }
+
   // Botón suscribirse con SweetAlert
   const btn = document.getElementById('suscribirseBtn');
   if (btn) {
