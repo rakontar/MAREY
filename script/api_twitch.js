@@ -35,15 +35,16 @@ const streamersDemo = [
 // ===============================
 function pintarStreamers(data) {
   let html = "";
-  data.forEach(user => {
+    data.forEach(user => {
     html += `
       <div class="col-md-3 col-sm-6 text-center">
-        <a href="https://www.twitch.tv/${user.login}" target="_blank">
+        <a href="https://www.twitch.tv/${user.login}" target="_blank" 
+           style="text-decoration:none; color:inherit;">
           <img src="${user.profile_image_url}" 
                alt="${user.display_name}" 
                class="img-fluid rounded-circle shadow" 
                style="width:150px; height:150px; object-fit:cover;">
-          <h5 class="mt-2 text-white">${user.display_name}</h5>
+          <h5 class="mt-2 text-white fw-bold">${user.display_name}</h5>
         </a>
       </div>
     `;
