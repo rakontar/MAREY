@@ -9,7 +9,8 @@ const streamers = [
   "devikadoll_",
   "chocobomon",
   "nashha",
-  "enyus"
+  "enyus",
+  "saralyche" // <-- Añadido a Twitch
 ];
 
 // ⚠️ Sustituye con tus datos reales si los tienes
@@ -28,14 +29,38 @@ const streamersDemo = [
   { login: "chocobomon", display_name: "Chocobomon", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/8382b118-85d0-4d84-aaab-1494ad363dba-profile_image-70x70.png" },
   { login: "nashha", display_name: "Nashha", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/c77bb8bf-bea6-4ae5-b074-db513ef424c9-profile_image-70x70.png" },
   { login: "enyus", display_name: "Enyus", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/b2a80a8b-25ed-48a1-86ad-0fb2f6e6de33-profile_image-70x70.png" },
+  { login: "saralyche", display_name: "Saralyche", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/42985a55-abb3-40ec-84d1-453e3895c77c-profile_image-70x70.png" }
+];
+
+// ===============================
+// Canales de Kick (manuales)
+// ===============================
+const kickChannels = [
+  {
+    name: "ZephiTV",
+    url: "https://kick.com/zephitv",
+    profile_image_url: "https://files.kick.com/images/user/44092569/profile_image/conversion/61056ea1-c580-49c9-9187-db4ae4a730ee-fullsize.webp"
+  },
+  {
+    name: "Andrexfi",
+    url: "https://kick.com/andrexfi",
+    profile_image_url: "https://files.kick.com/images/user/11745250/profile_image/conversion/79599ac4-cf97-4889-800a-82a403111a26-fullsize.webp"
+  },
+  {
+    name: "Ricarxxxx",
+    url: "https://kick.com/ricarxxxx",
+    profile_image_url: "https://files.kick.com/images/user/2931958/profile_image/conversion/4782c459-2937-45ce-b534-68d42567617e-fullsize.webp"
+  }
 ];
 
 // ===============================
 // Función para pintar streamers en HTML
 // ===============================
-function pintarStreamers(data) {
+function pintarStreamers(data, kick = []) {
   let html = "";
-    data.forEach(user => {
+
+  // Twitch
+  data.forEach(user => {
     html += `
       <div class="col-md-3 col-sm-6 text-center">
         <a href="https://www.twitch.tv/${user.login}" target="_blank" 
@@ -45,6 +70,22 @@ function pintarStreamers(data) {
                class="img-fluid rounded-circle shadow" 
                style="width:150px; height:150px; object-fit:cover;">
           <h5 class="mt-2 text-white fw-bold">${user.display_name}</h5>
+        </a>
+      </div>
+    `;
+  });
+
+  // Kick
+  kick.forEach(user => {
+    html += `
+      <div class="col-md-3 col-sm-6 text-center">
+        <a href="${user.url}" target="_blank" 
+           style="text-decoration:none; color:inherit;">
+          <img src="${user.profile_image_url}" 
+               alt="${user.name}" 
+               class="img-fluid rounded-circle shadow" 
+               style="width:150px; height:150px; object-fit:cover;">
+          <h5 class="mt-2 text-white fw-bold">${user.name}</h5>
         </a>
       </div>
     `;
@@ -76,11 +117,11 @@ async function cargarStreamersAPI() {
 
     if (!data.data) throw new Error("No se recibieron datos de Twitch API");
 
-    pintarStreamers(data.data);
+    pintarStreamers(data.data, kickChannels);
 
   } catch (err) {
     console.warn("No se pudo cargar Twitch API, usando modo demo:", err);
-    pintarStreamers(streamersDemo);
+    pintarStreamers(streamersDemo, kickChannels);
   }
 }
 

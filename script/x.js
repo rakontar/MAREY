@@ -9,8 +9,8 @@ const usuariosX = [
   },
   {
     username: "Latortillapapa1",
-    display_name: "LaTortillapapa",
-    profile_image_url: "https://pbs.twimg.com/profile_images/1873593617756901376/05bOe9Z9_400x400.jpg"
+    display_name: "tortilla",
+    profile_image_url: "https://pbs.twimg.com/profile_images/1967353840509878272/tucSuBR5_400x400.jpg"
   },
   {
     username: "thaniia92",

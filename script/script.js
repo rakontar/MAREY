@@ -103,4 +103,35 @@ document.addEventListener('DOMContentLoaded', function () {
       sidebar.classList.remove('open');
     });
   });
+
+const carousel = document.getElementById('imagenCarousel');
+  const items = carousel.querySelectorAll('.carousel-item');
+  const indicators = carousel.querySelector('.carousel-indicators');
+  const prevBtn = carousel.querySelector('.carousel-control-prev');
+  const nextBtn = carousel.querySelector('.carousel-control-next');
+
+  if(items.length > 1) {
+    // Si hay más de una imagen, activamos el carrusel y los indicadores
+    carousel.setAttribute('data-bs-ride', 'carousel');
+    carousel.setAttribute('data-bs-interval', '2000');
+
+    // Generar indicadores dinámicamente
+    indicators.innerHTML = '';
+    items.forEach((item, index) => {
+      const button = document.createElement('button');
+      button.setAttribute('type', 'button');
+      button.setAttribute('data-bs-target', '#imagenCarousel');
+      button.setAttribute('data-bs-slide-to', index);
+      if(index === 0) button.classList.add('active');
+      indicators.appendChild(button);
+    });
+
+  } else {
+    // Si solo hay 1 imagen, ocultamos controles e indicadores
+    prevBtn.style.display = 'none';
+    nextBtn.style.display = 'none';
+    indicators.style.display = 'none';
+  }
+
+  
 });
