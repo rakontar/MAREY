@@ -60,9 +60,14 @@ document.addEventListener('DOMContentLoaded', function () {
         icon: null  // Sin icono
       }).then((result) => {
         if (result.isConfirmed) {
+          const hoy = new Date();
+          const opciones = { month: 'long', year: 'numeric' };
+          const siguienteMes = new Date(hoy.getFullYear(), hoy.getMonth() + 1, hoy.getDate()).toLocaleDateString('es-ES', opciones);
+
+          // Mostrar alerta con SweetAlert2
           Swal.fire({
             title: '¡Suscrito!',
-            text: 'El pago aceptado de tu tarjeta de crédito de 499€. Gracias por tu caridad',
+            text: `El pago ha sido aceptado de tu tarjeta de crédito de 499€. Gracias por tu caridad. El siguiente cobro será en ${siguienteMes}.`,
             icon: 'success',
             iconColor: 'green',
             confirmButtonText: 'Aceptar',
@@ -105,33 +110,42 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 const carousel = document.getElementById('imagenCarousel');
-  const items = carousel.querySelectorAll('.carousel-item');
-  const indicators = carousel.querySelector('.carousel-indicators');
-  const prevBtn = carousel.querySelector('.carousel-control-prev');
-  const nextBtn = carousel.querySelector('.carousel-control-next');
+const items = carousel.querySelectorAll('.carousel-item');
+const indicators = carousel.querySelector('.carousel-indicators');
+const prevBtn = carousel.querySelector('.carousel-control-prev');
+const nextBtn = carousel.querySelector('.carousel-control-next');
+const tituloArticulo = document.getElementById('tituloArticulo');
 
-  if(items.length > 1) {
-    // Si hay más de una imagen, activamos el carrusel y los indicadores
-    carousel.setAttribute('data-bs-ride', 'carousel');
-    carousel.setAttribute('data-bs-interval', '2000');
+if(items.length > 1) {
+  // Si hay más de una imagen, activamos el carrusel con controles manuales
+  carousel.removeAttribute('data-bs-ride');
+  carousel.setAttribute('data-bs-interval', 'false');
 
-    // Generar indicadores dinámicamente
-    indicators.innerHTML = '';
-    items.forEach((item, index) => {
-      const button = document.createElement('button');
-      button.setAttribute('type', 'button');
-      button.setAttribute('data-bs-target', '#imagenCarousel');
-      button.setAttribute('data-bs-slide-to', index);
-      if(index === 0) button.classList.add('active');
-      indicators.appendChild(button);
-    });
+  // Generar indicadores dinámicamente
+  indicators.innerHTML = '';
+  items.forEach((item, index) => {
+    const button = document.createElement('button');
+    button.setAttribute('type', 'button');
+    button.setAttribute('data-bs-target', '#imagenCarousel');
+    button.setAttribute('data-bs-slide-to', index);
+    if(index === 0) button.classList.add('active');
+    indicators.appendChild(button);
+  });
 
-  } else {
-    // Si solo hay 1 imagen, ocultamos controles e indicadores
-    prevBtn.style.display = 'none';
-    nextBtn.style.display = 'none';
-    indicators.style.display = 'none';
-  }
+  // Escuchar cambios de slide y actualizar el título
+  carousel.addEventListener('slid.bs.carousel', function () {
+    const activeIndex = [...items].findIndex(item => item.classList.contains('active'));
+    tituloArticulo.textContent = `${activeIndex + 1} ARTICULO`;
+  });
+
+} else {
+  // Si solo hay 1 imagen, ocultamos controles e indicadores
+  prevBtn.style.display = 'none';
+  nextBtn.style.display = 'none';
+  indicators.style.display = 'none';
+  tituloArticulo.textContent = "1 ARTICULO";
+}
+
 
   
 });

@@ -9,7 +9,7 @@ const usuariosX = [
   },
   {
     username: "Latortillapapa1",
-    display_name: "Latortillapapa",
+    display_name: " Latortillapapa",
     profile_image_url: "https://pbs.twimg.com/profile_images/1967353840509878272/tucSuBR5_400x400.jpg"
   },
   {

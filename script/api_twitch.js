@@ -10,7 +10,8 @@ const streamers = [
   "chocobomon",
   "nashha",
   "enyus",
-  "saralyche" // <-- Añadido a Twitch
+  "saralyche",
+  "Mills_RP"
 ];
 
 // ⚠️ Sustituye con tus datos reales si los tienes
@@ -29,7 +30,9 @@ const streamersDemo = [
   { login: "chocobomon", display_name: "Chocobomon", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/8382b118-85d0-4d84-aaab-1494ad363dba-profile_image-70x70.png" },
   { login: "nashha", display_name: "Nashha", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/c77bb8bf-bea6-4ae5-b074-db513ef424c9-profile_image-70x70.png" },
   { login: "enyus", display_name: "Enyus", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/b2a80a8b-25ed-48a1-86ad-0fb2f6e6de33-profile_image-70x70.png" },
-  { login: "saralyche", display_name: "Saralyche", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/42985a55-abb3-40ec-84d1-453e3895c77c-profile_image-70x70.png" }
+  { login: "saralyche", display_name: "Saralyche", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/42985a55-abb3-40ec-84d1-453e3895c77c-profile_image-70x70.png" },
+  { login: "mills_rp", display_name: "Mills_RP", profile_image_url: "https://static-cdn.jtvnw.net/jtv_user_pictures/ac1fc921-950a-4488-b985-ac66c40d0706-profile_image-150x150.png" }
+
 ];
 
 // ===============================
@@ -51,6 +54,7 @@ const kickChannels = [
     url: "https://kick.com/ricarxxxx",
     profile_image_url: "https://files.kick.com/images/user/2931958/profile_image/conversion/4782c459-2937-45ce-b534-68d42567617e-fullsize.webp"
   }
+  
 ];
 
 // ===============================
